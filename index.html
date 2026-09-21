@@ -6,11 +6,11 @@
 <title>MoleMix — Лаборатория pH</title>
 <style>
   :root{
-    --bg1:#504a59;
-    --bg2:#655d6f;
-    --bg3:#776d7e;
-    --ink:#fffaf8;
-    --muted:#d9d0dc;
+    --bg1:#dfd8e3;
+    --bg2:#cec6d4;
+    --bg3:#b9b2c2;
+    --ink:#f7f1f8;
+    --muted:#ebe4ee;
     --line:rgba(255,255,255,.22);
     --glass:rgba(234,246,255,.16);
     --glass-line:rgba(255,255,255,.82);
@@ -27,7 +27,7 @@
   *{box-sizing:border-box}
   html,body{width:100%;height:100%;margin:0;overflow:hidden}
   body{
-    font-family:Inter, ui-rounded, "SF Pro Rounded", "Segoe UI", Arial, sans-serif;
+    font-family:"Segoe UI", Arial, sans-serif;
     color:var(--ink);
     background:
       radial-gradient(circle at 12% 8%, rgba(244,183,208,.18), transparent 30%),
@@ -68,10 +68,10 @@
   .telegram svg{width:26px;height:26px;fill:#f9f4ff}
 
   .title{text-align:center;line-height:1}
-  .title h1{margin:0;font-size:clamp(24px,2.6vw,36px);font-weight:800;letter-spacing:-.02em}
-  .title small{display:block;margin-top:6px;color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+  .title h1{margin:0;font-size:clamp(24px,2.6vw,36px);font-weight:700;letter-spacing:0}
+  .title small{display:block;margin-top:6px;color:#71697a;font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
 
-  .logo{width:88px;height:64px;object-fit:contain;justify-self:end;filter:drop-shadow(0 8px 16px rgba(25,18,31,.18))}
+  .logo{width:96px;height:68px;object-fit:contain;justify-self:end;filter:drop-shadow(0 8px 16px rgba(25,18,31,.10));background:rgba(255,255,255,.42);border:1px solid rgba(84,73,96,.10);border-radius:18px;padding:8px 10px}
 
   .scene{
     min-height:0;
@@ -93,8 +93,8 @@
     overflow:hidden;
   }
   .shelf-head{padding:14px 14px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-  .shelf-head strong{font-size:14px;letter-spacing:.01em}
-  .shelf-head span{font-size:10px;color:var(--muted)}
+  .shelf-head strong{font-size:14px;letter-spacing:.01em;font-weight:700;color:#f4eff6}
+  .shelf-head span{font-size:10px;color:#d8cfdb;font-weight:500}
   .shelf-scroll{
     min-height:0;
     overflow-y:auto;
@@ -167,7 +167,7 @@
   .help-btn:hover{background:rgba(255,255,255,.18);transform:translateY(-1px)}
   .help-tip{
     position:absolute;left:48px;top:0;width:min(310px,52vw);padding:12px 14px;border-radius:18px;
-    background:#fff8f4;color:#4f4655;font-size:12px;line-height:1.48;font-weight:600;
+    background:#fff8f4;color:#4f4655;font-size:12px;line-height:1.55;font-weight:500;
     box-shadow:0 18px 40px rgba(25,19,31,.28);opacity:0;visibility:hidden;transform:translateY(4px);transition:.18s ease;
     pointer-events:none
   }
@@ -176,43 +176,43 @@
 
   .clear-btn{
     position:absolute;right:16px;top:15px;z-index:30;
-    border:1px solid rgba(255,255,255,.20);border-radius:999px;padding:10px 16px;
-    background:rgba(246,183,208,.17);color:#fff;font-weight:800;font-size:12px;cursor:pointer;
+    border:1px solid rgba(255,255,255,.20);border-radius:999px;padding:13px 20px;
+    background:rgba(246,183,208,.20);color:#f8f2fb;font-weight:700;font-size:14px;cursor:pointer;
     box-shadow:var(--soft-shadow);transition:.18s ease
   }
   .clear-btn:hover{background:rgba(246,183,208,.25);transform:translateY(-1px)}
   .clear-btn:disabled{opacity:.38;cursor:not-allowed;transform:none}
 
   .pipette-area{
-    position:absolute;left:50%;top:7%;transform:translateX(-50%);z-index:18;width:min(390px,72%);height:164px;
+    position:absolute;left:50%;top:5%;transform:translateX(-50%);z-index:18;width:min(470px,76%);height:208px;
     pointer-events:none
   }
   .pipette-label{
     position:absolute;left:50%;top:0;transform:translateX(-50%);padding:6px 11px;border-radius:999px;
-    background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.14);font-size:11px;font-weight:800;color:#fff;
+    background:rgba(61,54,68,.56);border:1px solid rgba(255,255,255,.16);font-size:12px;font-weight:700;color:#f6f0f8;
     opacity:0;transition:.18s ease;white-space:nowrap
   }
   .pipette-label.show{opacity:1}
   .pipette{
-    position:absolute;left:50%;top:35px;transform:translateX(-50%);width:54px;height:112px;
+    position:absolute;left:50%;top:36px;transform:translateX(-50%);width:72px;height:146px;
     transition:transform .28s ease
   }
   .pipette.squeeze{transform:translateX(-50%) translateY(5px)}
   .pipette-bulb{
-    width:42px;height:46px;border-radius:52% 52% 45% 45%;margin:0 auto -3px;
+    width:56px;height:58px;border-radius:52% 52% 45% 45%;margin:0 auto -4px;
     background:linear-gradient(180deg,#ead8ef,#bc9fc8);border:2px solid rgba(255,255,255,.44);
     box-shadow:inset 7px 8px 10px rgba(255,255,255,.16),0 9px 20px rgba(27,20,31,.22)
   }
   .pipette-tube{
-    width:13px;height:62px;margin:auto;border-radius:8px 8px 5px 5px;border:2px solid rgba(255,255,255,.64);
+    width:17px;height:82px;margin:auto;border-radius:9px 9px 5px 5px;border:2px solid rgba(255,255,255,.64);
     background:linear-gradient(180deg,rgba(237,248,255,.30),rgba(237,248,255,.13));position:relative;overflow:hidden
   }
-  .pipette-fluid{position:absolute;left:2px;right:2px;bottom:2px;height:62%;border-radius:4px;background:var(--drop-color,#bfe8ff);transition:background .25s ease}
-  .pipette-tip{width:5px;height:22px;margin:-1px auto 0;border-radius:3px;background:rgba(231,244,251,.82);box-shadow:0 5px 12px rgba(28,22,35,.16)}
+  .pipette-fluid{position:absolute;left:2px;right:2px;bottom:2px;height:62%;border-radius:5px;background:var(--drop-color,#bfe8ff);transition:background .25s ease}
+  .pipette-tip{width:7px;height:32px;margin:-1px auto 0;border-radius:4px;background:rgba(231,244,251,.86);box-shadow:0 5px 12px rgba(28,22,35,.16)}
 
-  .drops{position:absolute;left:50%;top:142px;width:26px;height:165px;transform:translateX(-50%);pointer-events:none}
+  .drops{position:absolute;left:50%;top:184px;width:32px;height:185px;transform:translateX(-50%);pointer-events:none}
   .drop{
-    position:absolute;left:50%;top:0;width:13px;height:18px;transform:translateX(-50%) translateY(0) scale(.82) rotate(45deg);
+    position:absolute;left:50%;top:0;width:16px;height:22px;transform:translateX(-50%) translateY(0) scale(.82) rotate(45deg);
     border-radius:52% 48% 62% 38%;background:var(--drop-color,#bfe8ff);opacity:0;
     box-shadow:inset 3px 3px 5px rgba(255,255,255,.27)
   }
@@ -221,7 +221,7 @@
     0%{opacity:0;transform:translateX(-50%) translateY(-5px) scale(.72) rotate(45deg)}
     12%{opacity:1}
     96%{opacity:1}
-    100%{opacity:0;transform:translateX(-50%) translateY(150px) scale(.96) rotate(45deg)}
+    100%{opacity:0;transform:translateX(-50%) translateY(172px) scale(.96) rotate(45deg)}
   }
 
   .beaker-wrap{
@@ -274,11 +274,11 @@
     min-height:0;display:block;overflow:visible
   }
   .meter{
-    position:absolute;right:18px;top:84px;width:170px;z-index:29;border-radius:28px;padding:14px 14px 16px;
-    background:rgba(38,32,44,.26);border:1px solid rgba(255,255,255,.16);box-shadow:var(--soft-shadow);
-    --probe-x:-90px;--probe-y:176px;--cord-x:-86px;--cord-h:266px;--cord-rot:8deg;
+    position:absolute;right:22px;top:76px;width:176px;z-index:29;border-radius:28px;padding:14px 14px 16px;
+    background:rgba(38,32,44,.30);border:1px solid rgba(255,255,255,.16);box-shadow:var(--soft-shadow);
+    --probe-x:-150px;--probe-y:198px;--cord-x:-128px;--cord-h:308px;--cord-rot:1deg;
   }
-  .meter-title{font-size:12px;font-weight:800;color:#fff;margin:0 0 10px 2px}
+  .meter-title{font-size:12px;font-weight:700;color:#f4eff6;margin:0 0 10px 2px;letter-spacing:.01em}
   .meter-device{
     width:100%;border:0;border-radius:22px;padding:13px 12px 12px;background:linear-gradient(180deg,#eae8e9,#cfcdd2);
     color:#4e4a51;cursor:pointer;box-shadow:0 12px 26px rgba(27,20,31,.25);transition:.17s ease
@@ -302,35 +302,35 @@
   .meter.measuring .probe-cord{transform:translate(var(--cord-x),0) rotate(var(--cord-rot));height:var(--cord-h)}
 
   .indicator-rack{
-    min-height:0;border-radius:30px;padding:14px;background:rgba(40,34,47,.20);border:1px solid rgba(255,255,255,.13);
+    min-height:0;border-radius:30px;padding:16px 14px;background:rgba(40,34,47,.22);border:1px solid rgba(255,255,255,.13);
     box-shadow:var(--soft-shadow);display:grid;grid-template-rows:auto minmax(0,1fr);overflow:hidden
   }
-  .rack-title{font-size:12px;font-weight:800;margin:0 0 10px 2px}
+  .rack-title{font-size:12px;font-weight:700;margin:0 0 12px 2px;color:#f4eff6;letter-spacing:.01em}
   .indicator-list{min-height:0;display:grid;align-content:center;gap:11px}
   .indicator{
-    border:1px solid rgba(255,255,255,.13);border-radius:23px;padding:10px 9px;background:rgba(255,255,255,.07);
-    color:#fff;cursor:pointer;display:grid;grid-template-columns:48px 1fr;align-items:center;gap:10px;text-align:left;transition:.17s ease
+    border:1px solid rgba(255,255,255,.13);border-radius:23px;padding:12px 11px;background:rgba(255,255,255,.07);
+    color:#f7f1f8;cursor:pointer;display:grid;grid-template-columns:54px 1fr;align-items:center;gap:12px;text-align:left;transition:.17s ease
   }
   .indicator:hover:not(:disabled){transform:translateY(-2px);background:rgba(255,255,255,.12)}
   .indicator:disabled{opacity:.38;cursor:not-allowed}
   .indicator.active{opacity:1;background:rgba(185,221,199,.16);box-shadow:inset 0 0 0 1px rgba(185,221,199,.20)}
-  .dropper-bottle{width:42px;height:55px;border-radius:11px 11px 14px 14px;border:2px solid rgba(255,255,255,.64);position:relative;background:rgba(236,246,252,.09);overflow:hidden}
-  .dropper-bottle::before{content:"";position:absolute;left:11px;right:11px;top:-6px;height:12px;border-radius:7px;background:#ead9ee;border:2px solid rgba(255,255,255,.30);z-index:4}
+  .dropper-bottle{width:46px;height:60px;border-radius:11px 11px 15px 15px;border:2px solid rgba(255,255,255,.64);position:relative;background:rgba(236,246,252,.10);overflow:hidden;box-shadow:inset 8px 0 10px rgba(255,255,255,.06)}
+  .dropper-bottle::before{content:"";position:absolute;left:12px;right:12px;top:-7px;height:13px;border-radius:7px;background:#ead9ee;border:2px solid rgba(255,255,255,.30);z-index:4}
   .dropper-bottle::after{content:"";position:absolute;left:3px;right:3px;bottom:3px;height:54%;border-radius:8px 8px 10px 10px;background:var(--indicator-color);box-shadow:inset 0 6px 10px rgba(255,255,255,.18)}
-  .indicator-name{font-weight:800;font-size:12px;line-height:1.18}.indicator-note{display:block;margin-top:3px;color:var(--muted);font-size:9px;font-weight:600}
+  .indicator-name{font-weight:700;font-size:14px;line-height:1.22;color:#f7f1f8}.indicator-note{display:none}
 
   .shake{animation:shake .35s ease}@keyframes shake{0%,100%{transform:translateX(0)}30%{transform:translateX(-5px)}60%{transform:translateX(5px)}}
 
   @media(max-width:940px){
     .scene{grid-template-columns:205px minmax(330px,1fr) 205px;gap:10px}
-    .game{padding-inline:9px}.topbar{grid-template-columns:58px 1fr 82px}.logo{width:78px}
+    .game{padding-inline:9px}.topbar{grid-template-columns:58px 1fr 82px}.logo{width:86px}
     .reagent{min-height:96px}.reagent-formula{font-size:17px}
     .indicator{grid-template-columns:42px 1fr;padding:8px}.dropper-bottle{width:38px;height:50px}
   }
 
   @media(max-width:760px){
     .game{grid-template-rows:58px minmax(0,1fr);padding:7px;gap:6px}
-    .topbar{grid-template-columns:50px 1fr 64px}.telegram{width:42px;height:42px;border-radius:15px}.logo{width:62px;height:48px}.title h1{font-size:22px}.title small{display:none}
+    .topbar{grid-template-columns:50px 1fr 64px}.telegram{width:42px;height:42px;border-radius:15px}.logo{width:74px;height:52px}.title h1{font-size:22px}.title small{display:none}
     .scene{position:relative;display:block;min-height:0;overflow:hidden}
     .lab{position:absolute;left:0;right:0;top:0;bottom:154px;border-radius:28px}
     .reagent-zone{position:absolute;left:0;right:0;bottom:0;height:146px;border-radius:24px;z-index:40;grid-template-rows:31px minmax(0,1fr)}
@@ -338,15 +338,15 @@
     .shelf-scroll{overflow-x:auto;overflow-y:hidden;padding:4px 8px 9px;scrollbar-width:thin}
     .bottle-grid{display:flex;gap:8px;width:max-content}.reagent{width:83px;min-height:96px;padding:7px 4px}.bottle{width:37px;height:47px}.reagent-formula{font-size:15px}
     .tools{position:absolute;inset:0;pointer-events:none;z-index:28;display:block;overflow:visible}
-    .meter{position:absolute;right:10px;top:66px;width:126px;padding:8px;border-radius:20px;pointer-events:auto;background:rgba(45,38,52,.46);border:1px solid rgba(255,255,255,.14);box-shadow:var(--soft-shadow);--probe-x:-74px;--probe-y:122px;--cord-x:-70px;--cord-h:190px;--cord-rot:8deg}
-    .meter-title{display:none}.meter-device{padding:8px;border-radius:16px}.meter-screen{height:39px;font-size:18px;border-radius:10px}.meter-dots{margin-top:6px}.probe-cord{display:block;right:30px;top:100%;height:74px}.probe{display:block;right:20px;top:calc(100% + 62px);width:20px;height:70px}
-    .indicator-rack{position:absolute;right:8px;bottom:164px;width:128px;padding:0;background:transparent;border:0;box-shadow:none;pointer-events:auto;overflow:visible;display:block}
-    .rack-title{display:none}.indicator-list{display:grid;gap:7px}.indicator{grid-template-columns:34px 1fr;padding:6px 7px;border-radius:17px;background:rgba(45,38,52,.46);backdrop-filter:blur(10px)}
-    .dropper-bottle{width:32px;height:40px;border-width:1.5px}.indicator-name{font-size:9px}.indicator-note{display:none}
-    .pipette-area{top:8%;width:55%;height:138px}.pipette{transform:translateX(-50%) scale(.84);transform-origin:top center}.pipette.squeeze{transform:translateX(-50%) translateY(5px) scale(.84)}.drops{top:127px}.drop.go{animation-duration:.65s}
+    .meter{position:absolute;right:10px;top:64px;width:132px;padding:8px;border-radius:20px;pointer-events:auto;background:rgba(45,38,52,.56);border:1px solid rgba(255,255,255,.14);box-shadow:var(--soft-shadow);--probe-x:-112px;--probe-y:138px;--cord-x:-96px;--cord-h:214px;--cord-rot:2deg}
+    .meter-title{display:none}.meter-device{padding:8px;border-radius:16px}.meter-screen{height:39px;font-size:18px;border-radius:10px;letter-spacing:.02em}.meter-dots{margin-top:6px}.probe-cord{display:block;right:28px;top:100%;height:88px}.probe{display:block;right:18px;top:calc(100% + 72px);width:20px;height:70px}
+    .indicator-rack{position:absolute;right:8px;bottom:164px;width:142px;padding:0;background:transparent;border:0;box-shadow:none;pointer-events:auto;overflow:visible;display:block}
+    .rack-title{display:none}.indicator-list{display:grid;gap:8px}.indicator{grid-template-columns:36px 1fr;padding:8px 8px;border-radius:17px;background:rgba(45,38,52,.46);backdrop-filter:blur(10px)}
+    .dropper-bottle{width:34px;height:44px;border-width:1.5px}.indicator-name{font-size:10px;line-height:1.2}.indicator-note{display:none}
+    .pipette-area{top:7%;width:60%;height:156px}.pipette{transform:translateX(-50%) scale(.92);transform-origin:top center}.pipette.squeeze{transform:translateX(-50%) translateY(5px) scale(.92)}.drops{top:150px}.drop.go{animation-duration:.65s}
     .beaker-wrap{width:clamp(185px,50vw,235px);height:clamp(235px,38vh,292px);bottom:5.5%}
     .sample-tag{bottom:2%;font-size:13px}
-    .clear-btn{right:auto;left:58px;top:12px;padding:9px 12px;font-size:10px}.help-wrap{left:11px;top:11px}.help-btn{width:34px;height:34px}.help-tip{left:0;top:43px;width:min(295px,78vw)}
+    .clear-btn{right:auto;left:58px;top:12px;padding:11px 15px;font-size:11px}.help-wrap{left:11px;top:11px}.help-btn{width:34px;height:34px}.help-tip{left:0;top:43px;width:min(295px,78vw)}
   }
 
   @media(max-height:720px) and (min-width:761px){
@@ -378,7 +378,7 @@
         <button class="help-btn" id="helpBtn" type="button" aria-label="Как пользоваться лабораторией">?</button>
         <div class="help-tip"><b>Что можно сделать:</b> выбери склянку — раствор попадёт в стакан каплями. Опусти pH-метр, чтобы увидеть pH. Затем добавь один индикатор и наблюдай изменение цвета. Для нового опыта очисти стакан.<br><br>В игре используются учебные растворы; значения pH округлены.</div>
       </div>
-      <button class="clear-btn" id="clearBtn" type="button" disabled>Очистить</button>
+      <button class="clear-btn" id="clearBtn" type="button" disabled>Очистить раствор</button>
 
       <section class="meter" id="meter">
         <div class="meter-title">pH-метр</div>
@@ -560,8 +560,8 @@ function indicatorColor(type,ph){
     return '#ee4e9a';
   }
   if(type==='litmus'){
-    if(ph<4.5)return '#e95f70';
-    if(ph<=8.3)return '#9568cf';
+    if(ph<6.8)return '#e95f70';
+    if(ph<=7.4)return '#9568cf';
     return '#527dd7';
   }
   return baseColor;
