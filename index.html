@@ -271,11 +271,12 @@
 
   /* pH METER + INDICATORS */
   .tools{
-    min-height:0;display:grid;grid-template-rows:auto 1fr;gap:12px;overflow:hidden
+    min-height:0;display:block;overflow:visible
   }
   .meter{
-    position:relative;border-radius:28px;padding:14px 14px 16px;
-    background:rgba(38,32,44,.20);border:1px solid rgba(255,255,255,.13);box-shadow:var(--soft-shadow)
+    position:absolute;right:18px;top:84px;width:170px;z-index:29;border-radius:28px;padding:14px 14px 16px;
+    background:rgba(38,32,44,.26);border:1px solid rgba(255,255,255,.16);box-shadow:var(--soft-shadow);
+    --probe-x:-90px;--probe-y:176px;--cord-x:-86px;--cord-h:266px;--cord-rot:8deg;
   }
   .meter-title{font-size:12px;font-weight:800;color:#fff;margin:0 0 10px 2px}
   .meter-device{
@@ -297,8 +298,8 @@
     box-shadow:0 8px 18px rgba(20,18,24,.26);z-index:10;transition:transform .58s cubic-bezier(.22,.8,.2,1)
   }
   .probe::after{content:"";position:absolute;left:6px;right:6px;bottom:7px;height:18px;border-radius:7px;background:#8aa397}
-  .meter.measuring .probe{transform:translate(-108px,205px)}
-  .meter.measuring .probe-cord{transform:translate(-103px,0) rotate(8deg);height:295px}
+  .meter.measuring .probe{transform:translate(var(--probe-x),var(--probe-y))}
+  .meter.measuring .probe-cord{transform:translate(var(--cord-x),0) rotate(var(--cord-rot));height:var(--cord-h)}
 
   .indicator-rack{
     min-height:0;border-radius:30px;padding:14px;background:rgba(40,34,47,.20);border:1px solid rgba(255,255,255,.13);
@@ -337,8 +338,8 @@
     .shelf-scroll{overflow-x:auto;overflow-y:hidden;padding:4px 8px 9px;scrollbar-width:thin}
     .bottle-grid{display:flex;gap:8px;width:max-content}.reagent{width:83px;min-height:96px;padding:7px 4px}.bottle{width:37px;height:47px}.reagent-formula{font-size:15px}
     .tools{position:absolute;inset:0;pointer-events:none;z-index:28;display:block;overflow:visible}
-    .meter{position:absolute;right:8px;top:8px;width:126px;padding:8px;border-radius:20px;pointer-events:auto;background:transparent;border:0;box-shadow:none}
-    .meter-title{display:none}.meter-device{padding:8px;border-radius:16px}.meter-screen{height:39px;font-size:18px;border-radius:10px}.meter-dots{margin-top:6px}.probe-cord{display:none}.probe{display:none}
+    .meter{position:absolute;right:10px;top:66px;width:126px;padding:8px;border-radius:20px;pointer-events:auto;background:rgba(45,38,52,.46);border:1px solid rgba(255,255,255,.14);box-shadow:var(--soft-shadow);--probe-x:-74px;--probe-y:122px;--cord-x:-70px;--cord-h:190px;--cord-rot:8deg}
+    .meter-title{display:none}.meter-device{padding:8px;border-radius:16px}.meter-screen{height:39px;font-size:18px;border-radius:10px}.meter-dots{margin-top:6px}.probe-cord{display:block;right:30px;top:100%;height:74px}.probe{display:block;right:20px;top:calc(100% + 62px);width:20px;height:70px}
     .indicator-rack{position:absolute;right:8px;bottom:164px;width:128px;padding:0;background:transparent;border:0;box-shadow:none;pointer-events:auto;overflow:visible;display:block}
     .rack-title{display:none}.indicator-list{display:grid;gap:7px}.indicator{grid-template-columns:34px 1fr;padding:6px 7px;border-radius:17px;background:rgba(45,38,52,.46);backdrop-filter:blur(10px)}
     .dropper-bottle{width:32px;height:40px;border-width:1.5px}.indicator-name{font-size:9px}.indicator-note{display:none}
@@ -379,6 +380,16 @@
       </div>
       <button class="clear-btn" id="clearBtn" type="button" disabled>Очистить</button>
 
+      <section class="meter" id="meter">
+        <div class="meter-title">pH-метр</div>
+        <button class="meter-device" id="meterBtn" type="button" disabled title="Измерить pH">
+          <div class="meter-screen" id="meterScreen"><small>pH</small>—</div>
+          <div class="meter-dots"><i></i><i></i><i></i></div>
+        </button>
+        <div class="probe-cord"></div><div class="probe"></div>
+      </section>
+
+
       <div class="pipette-area" aria-hidden="true">
         <div class="pipette-label" id="pipetteLabel"></div>
         <div class="pipette" id="pipette">
@@ -403,15 +414,6 @@
     </section>
 
     <aside class="tools">
-      <section class="meter" id="meter">
-        <div class="meter-title">pH-метр</div>
-        <button class="meter-device" id="meterBtn" type="button" disabled title="Измерить pH">
-          <div class="meter-screen" id="meterScreen"><small>pH</small>—</div>
-          <div class="meter-dots"><i></i><i></i><i></i></div>
-        </button>
-        <div class="probe-cord"></div><div class="probe"></div>
-      </section>
-
       <section class="indicator-rack">
         <div class="rack-title">Индикаторы</div>
         <div class="indicator-list">
